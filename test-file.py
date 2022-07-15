@@ -13,7 +13,9 @@ class sentenceBuilder:
         self.sentenceArr = []
         self.paragraphArr = []
         self.newSentence = ''
+        self.newParagraph = ''
         self.space = ' '
+        self.counter = 1
         self.digits = string.digits
         self.alphabet = string.ascii_letters
     
@@ -24,23 +26,25 @@ class sentenceBuilder:
          #   print(y)
         randomGenerator = secrets.choice(multiArr)
         self.sentenceArr = randomGenerator
-        print(self.sentenceArr)
+        #print(self.sentenceArr)
         self.builder()
 
     def builder(self):
         self.newSentence = self.sentenceArr[0] + ' ' + self.userSubject + ' ' + self.sentenceArr[1] + ' ' + self.userAdjective + ' ' + self.userNoun + self.sentenceArr[2] 
-        print(self.newSentence)        
+        #print(self.newSentence)        
         self.paragraphs()
 
     def paragraphs(self):
         self.paragraphArr = self.paragraphArr + [self.newSentence]
-        print(self.paragraphArr)
-        for z in self.paragraphArr:
-            if(z < 5):
-                self.random()
-            else:
-                print('stop')
-                return
+        for w in self.paragraphArr:
+            self.newParagraph = w
+            print(self.newParagraph)
+        if(self.counter < 5):
+            self.counter = self.counter + 1
+            self.random()
+        else:
+            print('stop')
+            return
 
 
 noun = input("Which noun do you want to use? ")
